@@ -26,7 +26,7 @@ fi
 SCRIPTPATH=$(dirname $(readlink -f $0))
 # Dodgy hax to send the file and execute it in one go, so we don't have to ssh
 # twice (and thus make the user enter the root pw twice)
-( nc -l 12345 < bin/production-bootstrap.sh &
+( nc -l 12345 < scripts/production-bootstrap.sh &
   cd $SCRIPTPATH/.. &&
   ssh -t -R12345:localhost:12345 $REMOTEUSER@$INSTANCE "$sudo apt-get install -qq -y netcat > /dev/null && nc localhost 12345 > production-bootstrap.sh && $sudo sh production-bootstrap.sh $ROLES" )
 
