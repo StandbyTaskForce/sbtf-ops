@@ -52,8 +52,15 @@ echo "done."
 
 # Add sbtf user
 echo -n "Adding sbtf user... "
-echo "sbtf  ALL=NOPASSWD: /home/sbtf/sbtf/scripts/sbtf-bootstrap.sh" > /etc/sudoers.d/sbtf
+echo "sbtf  ALL=NOPASSWD: /bin/bash /home/sbtf/sbtf/scripts/sbtf-bootstrap.sh *" > /etc/sudoers.d/sbtf
 chmod 440 /etc/sudoers.d/sbtf
+
+# Make sure includedir directive is present
+if ! grep includedir /etc/sudoers > /dev/null; then
+    chmod u+w /etc/sudoers
+    echo '#includedir /etc/sudoers.d' >> /etc/sudoers
+    chmod u-w /etc/sudoers
+fi
 
 useradd -c 'SBTF System User' -d /home/sbtf -m -s /bin/bash -u 7777 -U sbtf || true
 echo "done."
@@ -76,7 +83,7 @@ read junk
 
 # Clone the repo & run bootstrap
 su - sbtf -c 'git clone git@github.com:nigelmcnie/sbtf.git'
-su - sbtf -c "cd sbtf && sudo bash ./scripts/sbtf-bootstrap.sh production $ROLES"
+su - sbtf -c "cd sbtf && sudo bash /home/sbtf/sbtf/scripts/sbtf-bootstrap.sh production $ROLES"
 
 
 # Finish up!
