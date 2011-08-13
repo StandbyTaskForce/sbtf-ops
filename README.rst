@@ -41,4 +41,5 @@ This project is released into the public domain.
 Attribution would be nice, a link to http://github.com/nigelmcnie/sbtf is fine.
 
 Principal Author: Nigel McNie <nigel@mcnie.name>
+
 Initial config donated by Shoptime Software: http://www.shoptime.co.nz/
