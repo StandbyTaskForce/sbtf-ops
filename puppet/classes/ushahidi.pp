@@ -203,4 +203,44 @@ exit \$RETVAL
         group   => "sbtf",
     }
 
+    file { "/home/sbtf/ushahidi/application/config/config.php":
+        ensure  => "present",
+        owner   => "sbtf",
+        group   => "sbtf",
+        mode    => 644,
+        content => "<?php defined('SYSPATH') or die('No direct script access.');
+// WARNING: managed by puppet!
+
+\$config['site_domain'] = 'http://dev.standbytaskforce.com/';
+\$config['site_protocol'] = 'http';
+\$config['index_page'] = 'index.php';
+\$config['url_suffix'] = '';
+\$config['internal_cache'] = TRUE;
+\$config['output_compression'] = FALSE;
+\$config['global_xss_filtering'] = TRUE;
+\$config['enable_hooks'] = TRUE;
+
+\$config['log_threshold'] = 3;
+\$config['log_directory'] = APPPATH.'logs';
+if (@!is_writable(\$config['log_directory'])) {
+        \$config['log_threshold'] = 0;
+}
+\$config['display_errors'] = TRUE;
+\$config['render_stats'] = TRUE;
+\
+\$config['enable_mhi'] = FALSE;
+\$config['extension_prefix'] = 'MY_';
+\$config['modules'] = array
+(
+        MODPATH.'auth',      // Authentication
+        // MODPATH.'forge',     // Form generation
+        // MODPATH.'formation',     // Form generation
+        // MODPATH.'kodoc',     // Self-generating documentation
+        // MODPATH.'media',     // Media caching and compression
+        // MODPATH.'archive',   // Archive utility
+        // MODPATH.'unit_test', // Unit testing
+);
+",
+    }
+
 }
