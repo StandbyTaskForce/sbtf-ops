@@ -62,7 +62,7 @@ if ! grep includedir /etc/sudoers > /dev/null; then
     chmod u-w /etc/sudoers
 fi
 
-useradd -c 'SBTF System User' -d /home/sbtf -m -s /bin/bash -u 7777 -U sbtf || true
+useradd -c 'SBTF System User' -d /home/sbtf -m -s /bin/bash -u 5555 -U sbtf || true
 echo "done."
 
 
