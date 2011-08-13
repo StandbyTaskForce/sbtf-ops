@@ -16,6 +16,11 @@ shift
 ROLES=$@
 REMOTEUSER=ubuntu
 
+if [ -z $ROLES ]; then
+    echo "Must specify roles to bootstrap this instance as"
+    exit 1
+fi
+
 echo "Bootstrapping $INSTANCE as $ROLES..."
 
 sudo=''
