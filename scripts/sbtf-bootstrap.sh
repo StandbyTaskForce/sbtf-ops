@@ -70,7 +70,7 @@ else
     echo "done."
 fi
 
-PC=$CODEDIR/puppet/nodes/$HOSTNAME.pp
+PC=$CODEDIR/puppet/local.pp
 cat<<EOF > $PC
 node "$HOSTNAME" {
     \$envtype       = "$ENVIRONMENT"
