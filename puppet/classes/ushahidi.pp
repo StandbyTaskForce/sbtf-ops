@@ -91,6 +91,11 @@ http {
 # Ushahidi nginx server configuration
 server {
     listen 80 default;
+    root /home/sbtf/ushahidi;
+    index index.php;
+
+    client_max_body_size 20m;
+    client_body_buffer_size 8192k;
 
     set \$remote_ip \$remote_addr;
     if ( \$http_x_real_ip ) {
@@ -100,16 +105,21 @@ server {
     access_log  /var/log/nginx/ushahidi.access.log detailed;
 
     location / {
-        error_page 502 =503 /server-error/index.html;
+        try_files \$uri \$uri/ /index.php?q=\$uri&\$args;
+        expires 3d;
+    }
+
+    location ~ \\.php$ {
         fastcgi_intercept_errors on;
 
         fastcgi_read_timeout 120;
         fastcgi_send_timeout 120;
 
         include fastcgi_params;
-        fastcgi_param SCRIPT_NAME '';
-        fastcgi_param PATH_INFO \$fastcgi_script_name;
-        fastcgi_pass unix:/var/ushahidi-socket;
+        #fastcgi_param SCRIPT_NAME '';
+        #fastcgi_param PATH_INFO \$fastcgi_script_name;
+        fastcgi_param SCRIPT_FILENAME \$document_root\$fastcgi_script_name;
+        fastcgi_pass 127.0.0.1:9000;
     }
 }
 ",
@@ -181,6 +191,16 @@ exit \$RETVAL
     service { "php":
         ensure  => running,
         require => File["/etc/init.d/php"],
+    }
+
+
+    # Ushahidi
+    exec { "checkout_ushahidi":
+        command => "git clone git://github.com/ushahidi/Ushahidi_Web.git ushahidi",
+        cwd     => "/home/sbtf",
+        creates => "/home/sbtf/ushahidi",
+        user    => "sbtf",
+        group   => "sbtf",
     }
 
 }
