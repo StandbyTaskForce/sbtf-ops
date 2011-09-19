@@ -82,7 +82,7 @@ read junk
 
 
 # Clone the repo & run bootstrap
-su - sbtf -c 'git clone git@github.com:nigelmcnie/sbtf.git'
+su - sbtf -c 'git clone git@github.com:StandbyTaskForce/sbtf-ops.git'
 su - sbtf -c "cd sbtf && sudo bash /home/sbtf/sbtf/scripts/sbtf-bootstrap.sh production $ROLES"
 
 
