@@ -190,7 +190,7 @@ exit \$RETVAL
 
     service { "php":
         ensure  => running,
-        require => File["/etc/init.d/php"],
+        require => [ File["/etc/init.d/php"], Package["php5-cgi"] ],
     }
 
 
