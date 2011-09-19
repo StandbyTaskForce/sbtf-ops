@@ -241,6 +241,7 @@ if (@!is_writable(\$config['log_directory'])) {
         // MODPATH.'unit_test', // Unit testing
 );
 ",
+        require => Exec["checkout_ushahidi"],
     }
 
 }
