@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 #
 # Bootstraps a new server.
 #
@@ -29,7 +29,7 @@ if [ "$REMOTEUSER" != "root" ]; then
 fi
 
 if [[ ! $INSTANCE =~ .*@.* ]]; then
-  $INSTANCE = "$REMOTEUSER@$INSTANCE"
+    INSTANCE="$REMOTEUSER@$INSTANCE"
 fi
 
 SCRIPTPATH=$(dirname $(readlink -f $0))
