@@ -211,4 +211,16 @@ if (@!is_writable(\$config['log_directory'])) {
         require => Exec["checkout_ushahidi"],
     }
 
+    file {[
+        "/home/sbtf/ushahidi/application/cache",
+        "/home/sbtf/ushahidi/application/logs",
+        "/home/sbtf/ushahidi/media/uploads",
+        ]:
+        ensure  => "directory",
+        owner   => "www-data",
+        group   => "www-data",
+        mode    => 600,
+        require => Exec["checkout_ushahidi"],
+    }
+
 }
