@@ -10,6 +10,9 @@ class sbtf::ushahidi inherits sbtf::base {
     $web_packages = [
         "nginx",
         "php5-cgi",
+        "php5-mysql",
+        "php5-mcrypt",
+        "php5-curl",
     ]
 
     bulkpackage { "web-packages":
