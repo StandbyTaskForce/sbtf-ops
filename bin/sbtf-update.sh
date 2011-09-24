@@ -1,8 +1,8 @@
 #!/bin/bash
 #
-# Ensures GYGO environments are up to date
+# Ensures SBTF environments are up to date
 #
-# Usage: ./bin/gygo-update.sh
+# Usage: ./bin/sbtf-update.sh
 #
 
 SCRIPT=$(readlink -f $0)
