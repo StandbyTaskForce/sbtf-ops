@@ -180,9 +180,9 @@ exit \$RETVAL
         content => "<?php defined('SYSPATH') or die('No direct script access.');
 // WARNING: managed by puppet!
 
-\$config['site_domain'] = 'http://dev.standbytaskforce.com/';
+\$config['site_domain'] = '';
 \$config['site_protocol'] = 'http';
-\$config['index_page'] = 'index.php';
+\$config['index_page'] = '';
 \$config['enable_auto_upgrader'] = FALSE;
 \$config['url_suffix'] = '';
 \$config['internal_cache'] = TRUE;
