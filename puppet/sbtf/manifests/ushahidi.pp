@@ -74,7 +74,7 @@ server {
     access_log  /var/log/nginx/ushahidi.access.log detailed;
 
     location / {
-        try_files \$uri \$uri/ /index.php?q=\$uri&\$args;
+        try_files \$uri \$uri/ /index.php?kohana_uri=\$uri&\$args;
         expires 3d;
     }
 
