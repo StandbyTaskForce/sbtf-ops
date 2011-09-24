@@ -13,7 +13,8 @@ server {
             set $remote_ip $http_x_real_ip;
     }
 
-    access_log  /var/log/nginx/ushahidi.access.log detailed;
+    access_log /var/log/nginx/ushahidi.access.log detailed;
+    error_log  /var/log/nginx/ushahidi.error.log;
 
     location / {
         try_files $uri $uri/ /index.php?kohana_uri=$uri&$args;
