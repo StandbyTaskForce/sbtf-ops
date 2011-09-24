@@ -15,7 +15,7 @@ maintenance issues.
 If the puppet config is changed, you can simply run one command on the server
 to grab and apply it::
 
-    sbtf@server:~/sbtf$ ./bin/sbtf-update.sh
+    sbtf@server:~/sbtf$ sudo ./bin/sbtf-update.sh
 
 Thus, with minimal effort, anyone can run a highly optimised, sensibly
 configured Ushahidi - and more importantly, keep up to date with any
@@ -38,7 +38,7 @@ Legal
 
 This project is released into the public domain.
 
-Attribution would be nice, a link to http://github.com/nigelmcnie/sbtf is fine.
+Attribution would be nice, a link to http://github.com/StandbyTaskForce/sbtf-ops is fine.
 
 Principal Author: Nigel McNie <nigel@mcnie.name>
 
