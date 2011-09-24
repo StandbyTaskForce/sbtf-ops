@@ -37,6 +37,13 @@ sbtf   ALL=NOPASSWD: /home/sbtf/sbtf/bin/sbtf-update.sh\n",
         mode    => 440,
     }
 
+    file { "/home/sbtf/sbtf/puppet/local.pp":
+        ensure => present,
+        owner  => "sbtf",
+        group  => "sbtf",
+        mode   => 644,
+    }
+
     # SSH
     package { "ssh":
         ensure  => latest,
