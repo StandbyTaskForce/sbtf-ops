@@ -32,45 +32,11 @@ class sbtf::ushahidi inherits sbtf::base {
     }
 
     file { "/etc/nginx/nginx.conf":
-        ensure => "present",
-        owner  => "root",
-        group  => "root",
-        mode   => 644,
-        content => "# WARNING: managed by puppet!
-user www-data;
-
-error_log /var/log/nginx/error.log;
-pid /var/run/nginx.pid;
-
-events {
-    worker_connections 1024;
-}
-
-http {
-    log_format detailed
-            '\$remote_ip - \$remote_user [\$time_local] '
-            '\"\$request\" \$status \$body_bytes_sent '
-            '\"\$http_referer\" \"\$http_user_agent\" \$request_time'
-    ;
-
-    include /etc/nginx/mime.types;
-    access_log /var/log/nginx/access.log;
-
-    sendfile on;
-
-    keepalive_timeout 65;
-    tcp_nodelay on;
-
-    server_tokens off;
-
-    gzip on;
-    gzip_disable \"MSIE [1-6]\\.(?!.*SV1)\";
-    gzip_types text/css application/x-javascript;
-
-    include /etc/nginx/conf.d/*.conf;
-    include /etc/nginx/sites-enabled/*;
-}
-",
+        ensure  => "present",
+        owner   => "root",
+        group   => "root",
+        mode    => 644,
+        content => template("sbtf/nginx/nginx.conf.erb"),
         require => Package["nginx"],
         notify  => Service["nginx"],
     }
