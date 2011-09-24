@@ -196,7 +196,7 @@ exit \$RETVAL
 
     # Ushahidi
     exec { "checkout_ushahidi":
-        command => "git clone git://github.com/ushahidi/Ushahidi_Web.git ushahidi",
+        command => "git clone git://github.com/StandbyTaskForce/Ushahidi_Web.git ushahidi",
         cwd     => "/home/sbtf",
         creates => "/home/sbtf/ushahidi",
         user    => "sbtf",
