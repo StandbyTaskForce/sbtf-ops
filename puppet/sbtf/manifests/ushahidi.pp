@@ -75,7 +75,7 @@ server {
 
     location / {
         try_files \$uri \$uri/ /index.php?kohana_uri=\$uri&\$args;
-        expires 3d;
+        expires 1h;
     }
 
     location ~ \\.php$ {
