@@ -52,46 +52,11 @@ class sbtf::ushahidi inherits sbtf::base {
 
     # TODO will need to make an intelligent decision about server name
     file { "/etc/nginx/sites-enabled/ushahidi":
-        ensure => "present",
-        owner  => "root",
-        group  => "root",
-        mode   => 644,
-        content => "# WARNING: managed by puppet!
-# Ushahidi nginx server configuration
-server {
-    listen 80 default;
-    root /home/sbtf/ushahidi;
-    index index.php;
-
-    client_max_body_size 20m;
-    client_body_buffer_size 8192k;
-
-    set \$remote_ip \$remote_addr;
-    if ( \$http_x_real_ip ) {
-            set \$remote_ip \$http_x_real_ip;
-    }
-
-    access_log  /var/log/nginx/ushahidi.access.log detailed;
-
-    location / {
-        try_files \$uri \$uri/ /index.php?kohana_uri=\$uri&\$args;
-        expires 1h;
-    }
-
-    location ~ \\.php$ {
-        fastcgi_intercept_errors on;
-
-        fastcgi_read_timeout 120;
-        fastcgi_send_timeout 120;
-
-        include fastcgi_params;
-        #fastcgi_param SCRIPT_NAME '';
-        #fastcgi_param PATH_INFO \$fastcgi_script_name;
-        fastcgi_param SCRIPT_FILENAME \$document_root\$fastcgi_script_name;
-        fastcgi_pass 127.0.0.1:9000;
-    }
-}
-",
+        ensure  => "present",
+        owner   => "root",
+        group   => "root",
+        mode    => 644,
+        content => template("sbtf/nginx/ushahidi.erb"),
         require => Package["nginx"],
         notify  => Service["nginx"], # TODO check this causes a reload only if changed
     }
