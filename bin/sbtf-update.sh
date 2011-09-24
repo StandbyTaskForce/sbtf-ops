@@ -22,7 +22,7 @@ if [ ! -d "$CODEDIR/.git" ]; then
     bail "Could not find .git for your repository that is supposed to be at $CODEDIR"
 fi
 
-puppet $CODEDIR/puppet/site.pp
+PUPPETLIB=$CODEDIR/puppet puppet $CODEDIR/puppet/local.pp
 RET=$?
 
 if [ $RET -gt 0 ]; then

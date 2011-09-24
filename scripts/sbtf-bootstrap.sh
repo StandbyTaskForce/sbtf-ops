@@ -72,17 +72,15 @@ fi
 
 PC=$CODEDIR/puppet/local.pp
 cat<<EOF > $PC
-node "$HOSTNAME" {
-    \$envtype       = "$ENVIRONMENT"
-    \$creating_user = "$CREATING_USER"
+\$envtype       = "$ENVIRONMENT"
+\$creating_user = "$CREATING_USER"
 EOF
 for R in $ENVIRONMENT $ROLES; do
-    echo "    include $R" >> $PC
+    echo "include sbtf::$R" >> $PC
 done
-echo "}" >> $PC
 
 
-puppet $CODEDIR/puppet/site.pp
+PUPPETLIB=$CODEDIR/puppet puppet $CODEDIR/puppet/local.pp
 RET=$?
 
 if [ $RET -gt 0 ]; then

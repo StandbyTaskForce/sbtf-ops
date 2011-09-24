@@ -1,7 +1,7 @@
 # vim: filetype=puppet
 # Reads in local settings for puppet, to save people editing the puppet config.
 
-class local-settings {
+class sbtf::local-settings {
     $local_settings_dir = 'puppet/classes/local-settings'
 
     $ubuntu_mirror_f = "$local_settings_dir/ubuntu-mirror"

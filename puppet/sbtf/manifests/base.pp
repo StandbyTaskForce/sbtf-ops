@@ -1,10 +1,14 @@
 # vim: filetype=puppet
 # Base class for all roles
 
-class base {
+class sbtf::base {
+    Exec {
+        path => "/usr/sbin:/usr/bin:/sbin:/bin",
+    }
+
     $repo_path = inline_template('<%= Dir.pwd %>')
 
-    include apt-setup
+    include sbtf::apt-setup
 
     # Configure locales
     file { "/var/lib/locales/supported.d/local":

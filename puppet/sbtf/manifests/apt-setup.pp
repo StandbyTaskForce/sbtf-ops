@@ -1,7 +1,7 @@
 # vim: filetype=puppet
 # Sets up apt configuration for all nodes
 
-class apt-setup inherits local-settings {
+class sbtf::apt-setup inherits sbtf::local-settings {
     File {
         ensure => "present",
         owner  => "root",

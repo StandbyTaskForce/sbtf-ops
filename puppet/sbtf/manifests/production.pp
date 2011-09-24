@@ -1,7 +1,7 @@
 # vim: filetype=puppet
 # "production" environment setup
 
-class production {
+class sbtf::production inherits sbtf::base {
     file { "/etc/hosts":
         ensure  => "present",
         content => "# WARNING: managed by puppet!
