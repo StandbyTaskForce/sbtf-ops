@@ -67,24 +67,16 @@ echo "done."
 
 
 # Set up sbtf user to connect to github
+# Don't need to generate ssh key anymore but useful to have it
 echo -n "Generating ssh key for sbtf... "
 su - sbtf -c 'ssh-keygen -q -t rsa -N "" -f /home/sbtf/.ssh/id_rsa'
 echo 'github.com,207.97.227.239 ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEAq2A7hRGmdnm9tUDbO9IDSwBK6TbQa+PXYPCPy6rbTrTtw7PHkccKrpp0yVhp5HdEIcKr6pLlVDBfOLX9QUsyCOV0wzfjIJNlGEYsdlLJizHhbn2mUjvSAHQqZETYP81eFzLQNnPHt4EVVUh7VfDESU84KezmD5QlWpXLmvU31/yMf+Se8xhHTvKSCZIFImWwoG6mbUoWf9nzpIoaSjB+weqqUUmpaaasXVal72J+UX2B+2RPW3RcT0eOzQgqlJL3RKrTJvdsjE3JEAvGq3lGHSZXy28G3skua2SmVi/w4yCE6gbODqnTWlg7+wC604ydGXA8VJiS5ap43JXiUFFAaQ==' > /home/sbtf/.ssh/known_hosts
 chown sbtf:sbtf /home/sbtf/.ssh/known_hosts
 echo "done."
 
-echo "-------------------------------------------------------------"
-echo "This is the public key for the sbtf user. Put it in github as a deploy key:"
-cat /home/sbtf/.ssh/id_rsa.pub
-echo "-------------------------------------------------------------"
-echo "Once you've done that, hit [enter] to contiue"
-read junk
-
-
-# Clone the repo & run bootstrap
-su - sbtf -c 'git clone git@github.com:StandbyTaskForce/sbtf-ops.git sbtf'
+# Clone the repo & run the bootstrap
+su - sbtf -c 'git clone git://github.com/StandbyTaskForce/sbtf-ops.git sbtf'
 su - sbtf -c "cd sbtf && sudo bash /home/sbtf/sbtf/scripts/sbtf-bootstrap.sh production $ROLES"
-
 
 # Finish up!
 echo "All done. Now, please set the root password, using the output of 'pwgen -s 15 1':"
