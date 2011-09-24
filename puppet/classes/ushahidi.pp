@@ -214,6 +214,7 @@ exit \$RETVAL
 \$config['site_domain'] = 'http://dev.standbytaskforce.com/';
 \$config['site_protocol'] = 'http';
 \$config['index_page'] = 'index.php';
+\$config['enable_auto_upgrader'] = FALSE;
 \$config['url_suffix'] = '';
 \$config['internal_cache'] = TRUE;
 \$config['output_compression'] = FALSE;
