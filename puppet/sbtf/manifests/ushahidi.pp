@@ -191,4 +191,12 @@ if (@!is_writable(\$config['log_directory'])) {
         require => Exec["checkout_ushahidi"],
     }
 
+    file { "/etc/cron.d/ushahidi":
+        ensure  => "present",
+        owner   => "root",
+        group   => "root",
+        mode    => 644,
+        content => template("sbtf/ushahidi/cron.erb"),
+    }
+
 }
