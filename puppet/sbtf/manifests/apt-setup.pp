@@ -53,4 +53,26 @@ deb-src $ubuntu_mirror lucid-security main universe
         },
         require => File["/etc/apt/apt.conf.d/02norecommends"],
     }
+
+    # Adding the key for the nginx ppa
+    exec { "apt-key_nginx_ppa":
+        command     => "/usr/bin/apt-key adv --keyserver keyserver.ubuntu.com --recv-keys C300EE8C",
+        refreshonly => true,
+    }
+
+    # Adding the nginx ppa for php5 so we get php5-fpm
+    file { "/etc/apt/sources.list.d/nginx-ppa-php5.list":
+        notify => Exec["apt-key_nginx_ppa", "apt-get_update"],
+        content => $envtype ? {
+            production => "# WARNING: managed via puppet
+deb http://ppa.launchpad.net/nginx/php5/ubuntu lucid main
+",
+            private => "# WARNING: managed via puppet
+deb http://ppa.launchpad.net/nginx/php5/ubuntu lucid main
+deb-src http://ppa.launchpad.net/nginx/php5/ubuntu lucid main
+",
+        },
+        require => File["/etc/apt/apt.conf.d/02norecommends"],
+    }
+
 }
