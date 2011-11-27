@@ -62,7 +62,7 @@ cat<<EOF > $PC
 \$envtype       = "$ENVIRONMENT"
 \$creating_user = "$CREATING_USER"
 EOF
-for R in $ENVIRONMENT; do
+for R in $ENVIRONMENT ushahidi; do
     echo "include sbtf::$R" >> $PC
 done
 
