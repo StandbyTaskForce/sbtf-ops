@@ -70,7 +70,7 @@ class sbtf::ushahidi inherits sbtf::base {
         notify => Service["php5-fpm"],
     }
 
-    service { "php":
+    service { "php5-fpm":
         ensure  => running,
         require => [ File["/etc/init.d/php5-fpm"], Package["php5-fpm"] ],
     }
