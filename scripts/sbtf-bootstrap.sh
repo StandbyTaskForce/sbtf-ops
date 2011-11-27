@@ -47,7 +47,7 @@ fi
 
 
 # Now we're ready to create the environment
-echo "Creating environment for checkout in $CODEDIR ($ROLES)"
+echo "Creating environment for checkout in $CODEDIR"
 
 if dpkg -l | grep ^ii.*puppet > /dev/null; then
     echo "Puppet already installed"
