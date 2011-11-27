@@ -9,7 +9,7 @@ class sbtf::ushahidi inherits sbtf::base {
 
     $web_packages = [
         "nginx",
-        "php5-cgi",
+        "php5-fpm",
         "php5-mysql",
         "php5-mcrypt",
         "php5-curl",
@@ -61,17 +61,18 @@ class sbtf::ushahidi inherits sbtf::base {
         notify  => Service["nginx"], # TODO check this causes a reload only if changed
     }
 
-    file { "/etc/init.d/php":
+    file { "/etc/init.d/php5-fpm":
         ensure  => "present",
         owner   => "root",
         group   => "root",
         mode    => 755,
-        content => template("sbtf/ushahidi/init.d-php.erb"),
+        require => Package["php5-fpm"],
+        notify => Service["php5-fpm"],
     }
 
     service { "php":
         ensure  => running,
-        require => [ File["/etc/init.d/php"], Package["php5-cgi"] ],
+        require => [ File["/etc/init.d/php5-fpm"], Package["php5-fpm"] ],
     }
 
 
