@@ -32,6 +32,18 @@ if [[ ! $INSTANCE =~ .*@.* ]]; then
     INSTANCE="$REMOTEUSER@$INSTANCE"
 fi
 
+
+exit_cleanly () {
+    nc_pid=`netstat -ntlp 2>/dev/null | grep 12345.*nc | awk '{print $7}' | cut -f 1 -d '/'`
+    if [ -n "$nc_pid" ]; then
+        kill $nc_pid;
+    fi
+
+    exit 0
+}
+
+trap exit_cleanly SIGINT SIGTERM
+
 SCRIPTPATH=$(dirname $(readlink -f $0))
 # Dodgy hax to send the file and execute it in one go, so we don't have to ssh
 # twice (and thus make the user enter the root pw twice)
@@ -46,3 +58,5 @@ SCRIPTPATH=$(dirname $(readlink -f $0))
 #  ssh-copy-id $REMOTEUSER@$INSTANCE > /dev/null &&
 #  tar cz bin/prod-bootstrap.sh | ssh $REMOTEUSER@$INSTANCE tar xz &&
 #  ssh $REMOTEUSER@$INSTANCE sh bin/prod-bootstrap.sh $ROLES )
+
+exit_cleanly
