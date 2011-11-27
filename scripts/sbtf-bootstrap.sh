@@ -3,18 +3,11 @@
 # Bootstraps SBTF server environments
 #
 # When run from an SBTF checkout, it makes sure the server/container it's
-# inside is configured for whatever roles it should have (which you name on the
-# command line).
+# inside is configured to run ushahidi.
 #
-# Usage: bash scripts/sbtf-bootstrap.sh environment role ([role]...)
+# Usage: bash scripts/sbtf-bootstrap.sh environment
 #
-# # Bootstraps a production ushahidi setup
-# bash scripts/sbtf-bootstrap.sh production ushahidi
-#
-# # Set up a private ushahidi environment
-# ./bin/sbtf-bootstrap.sh private ushahidi
-#
-# NOTE: more roles to come as we need them...
+# "environment" can be production or private.
 #
 
 SCRIPT=$(readlink -f $0)
@@ -39,18 +32,12 @@ ENVIRONMENT=$1
 shift
 
 if [ -z "$ENVIRONMENT" ]; then
-    bail "Usage: bash scripts/bootstrap.sh environment <roles>"
+    bail "Usage: bash scripts/bootstrap.sh environment"
 fi
 
 if  [ "$ENVIRONMENT" != "production" ] &&
     [ "$ENVIRONMENT" != "private" ]; then
     bail "Invalid environment specified; must be 'private' or 'production'";
-fi
-
-ROLES=$@
-
-if [ "$ROLES" == "" ]; then
-    bail "Usage: bash scripts/bootstrap.sh environment <roles>"
 fi
 
 CREATING_USER="root"
@@ -75,7 +62,7 @@ cat<<EOF > $PC
 \$envtype       = "$ENVIRONMENT"
 \$creating_user = "$CREATING_USER"
 EOF
-for R in $ENVIRONMENT $ROLES; do
+for R in $ENVIRONMENT; do
     echo "include sbtf::$R" >> $PC
 done
 

@@ -5,23 +5,18 @@
 # All this script does is send the production bootstrapping script through to
 # the server, then executes it.
 #
-# Usage: bootstrap-server.sh <instance-ip> <role> [, role, ...]
-# E.g.:  bootstrap-server.sh 184.106.94.194 web
+# Usage: bootstrap-server.sh <instance-ip> [<ssh-options>]
+# E.g.:  bootstrap-server.sh 184.106.94.194 -i ~/.ssh/sbtfaws.pem
 #
 # Author: Nigel McNie <nigel@mcnie.name>
 #
 
 INSTANCE=$1
 shift
-ROLES=$@
+SSH_OPTS=$@
 REMOTEUSER=ubuntu
 
-if [ -z $ROLES ]; then
-    echo "Must specify roles to bootstrap this instance as"
-    exit 1
-fi
-
-echo "Bootstrapping $INSTANCE as $ROLES..."
+echo "Bootstrapping $INSTANCE..."
 
 sudo=''
 if [ "$REMOTEUSER" != "root" ]; then
@@ -49,7 +44,7 @@ SCRIPTPATH=$(dirname $(readlink -f $0))
 # twice (and thus make the user enter the root pw twice)
 ( nc -l 12345 < scripts/production-bootstrap.sh &
   cd $SCRIPTPATH/.. &&
-  ssh -t -R12345:localhost:12345 $INSTANCE "$sudo apt-get install -qq -y netcat > /dev/null && nc localhost 12345 > production-bootstrap.sh && $sudo sh production-bootstrap.sh $ROLES" )
+  ssh -t -R12345:localhost:12345 $INSTANCE $SSH_OPTS "$sudo apt-get install -qq -y netcat > /dev/null && nc localhost 12345 > production-bootstrap.sh && $sudo sh production-bootstrap.sh $ROLES" )
 
 # This is an alternative way that also works, but the first thing the
 # production-bootstrap script should do is remove the authorized_keys file for

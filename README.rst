@@ -6,7 +6,7 @@ Ushahidi (though the puppet could be expanded to run anything).
 
 The goal is that you can run one command::
 
-    ./bin/bootstrap-server.sh [ip/hostname of server] ushahidi
+    ./bin/bootstrap-server.sh [ip/hostname of server]
 
 And it will install and configure an Ushahidi on that server, using the best
 configuration possible, including handling monitoring and other such

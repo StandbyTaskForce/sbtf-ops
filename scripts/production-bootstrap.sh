@@ -26,7 +26,6 @@ fi
 
 
 # Core config
-ROLES=$@
 echo -n "Doing core configuration... "
 
 echo "en_US.UTF-8 UTF-8" > /var/lib/locales/supported.d/local
@@ -68,7 +67,7 @@ echo "done."
 
 # Clone the repo & run the bootstrap
 su - sbtf -c 'git clone git://github.com/StandbyTaskForce/sbtf-ops.git sbtf'
-su - sbtf -c "cd sbtf && sudo bash /home/sbtf/sbtf/scripts/sbtf-bootstrap.sh production $ROLES"
+su - sbtf -c "cd sbtf && sudo bash /home/sbtf/sbtf/scripts/sbtf-bootstrap.sh production"
 
 # Finish up!
 echo "All done. Now, please set the root password, using the output of 'pwgen -s 15 1':"
