@@ -44,7 +44,7 @@ SCRIPTPATH=$(dirname $(readlink -f $0))
 # twice (and thus make the user enter the root pw twice)
 ( nc -l 12345 < scripts/production-bootstrap.sh &
   cd $SCRIPTPATH/.. &&
-  ssh -t -R12345:localhost:12345 $INSTANCE $SSH_OPTS "$sudo apt-get install -qq -y netcat > /dev/null && nc localhost 12345 > production-bootstrap.sh && $sudo sh production-bootstrap.sh $ROLES" )
+  LANG=C ssh -t -R12345:localhost:12345 $INSTANCE $SSH_OPTS "$sudo apt-get install -qq -y netcat > /dev/null && nc localhost 12345 > production-bootstrap.sh && $sudo sh production-bootstrap.sh $ROLES" )
 
 # This is an alternative way that also works, but the first thing the
 # production-bootstrap script should do is remove the authorized_keys file for
