@@ -14,7 +14,7 @@
 INSTANCE=$1
 shift
 SSH_OPTS=$@
-REMOTEUSER=ubuntu
+REMOTEUSER=root
 
 echo "Bootstrapping $INSTANCE..."
 
