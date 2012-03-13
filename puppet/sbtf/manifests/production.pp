@@ -5,6 +5,7 @@ class sbtf::production inherits sbtf::base {
     file { "/etc/hosts":
         ensure  => "present",
         content => "# WARNING: managed by puppet!
+$ipaddress      $hostname.ops.standbytaskforce.com $hostname
 127.0.0.1       localhost localhost.localdomain\n",
         owner   => "root",
         group   => "root",
