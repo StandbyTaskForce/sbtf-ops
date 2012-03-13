@@ -87,7 +87,7 @@ sbtf   ALL=NOPASSWD: /home/sbtf/sbtf/bin/sbtf-update.sh\n",
             uid             => 2000,
             fullname        => "Nigel McNie",
             password        => '$6$pZA7NlIv$EJr6uSwptv2UziF504E2lJx34MSifJGK4EE8qk9xyExXyP7Dso3NNcphwTpDaWKbDpWezIp8eLxlWuagxJqBM0',
-            groups          => [ "sbtf", "admin" ],
+            groups          => [ "sbtf", "sudo" ],
             authorized_keys => "ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEApFJAa4+l7bQRIAhFx/Y60ozZm2e7qZwCY5TQsw9NYBgGtNVKqMVmEw6l7XMzs9KcPl4lozMZuQbJtKq8voP/e0PIuij4a4E3Qr3QZwAKVc++v8y/uLym/A1yzJps72QtguynOrDP1GLguR1igsTbWFoU9leG6Wo/ROieFNVJ6bQ4bOPvTZKc0vQZzK+HOpBaMOnvPK9eeHDluQK3MSObU3IJcRvH/838nzT1CP4YU8oqDnpWvd6o9jEcVzbyD3l7SKNBmKulwTQnNC7aDN0j+/LCj+nOhFtPkKTnQSsf2PtzJ5tOAk2s5HxiUpO5OX8uIuBhXQ50nSU8MHB2Oq/4cQ== nigel@bubbles",
     }
 }
