@@ -90,4 +90,12 @@ sbtf   ALL=NOPASSWD: /home/sbtf/sbtf/bin/sbtf-update.sh\n",
             groups          => [ "sbtf", "sudo" ],
             authorized_keys => "ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEApFJAa4+l7bQRIAhFx/Y60ozZm2e7qZwCY5TQsw9NYBgGtNVKqMVmEw6l7XMzs9KcPl4lozMZuQbJtKq8voP/e0PIuij4a4E3Qr3QZwAKVc++v8y/uLym/A1yzJps72QtguynOrDP1GLguR1igsTbWFoU9leG6Wo/ROieFNVJ6bQ4bOPvTZKc0vQZzK+HOpBaMOnvPK9eeHDluQK3MSObU3IJcRvH/838nzT1CP4YU8oqDnpWvd6o9jEcVzbyD3l7SKNBmKulwTQnNC7aDN0j+/LCj+nOhFtPkKTnQSsf2PtzJ5tOAk2s5HxiUpO5OX8uIuBhXQ50nSU8MHB2Oq/4cQ== nigel@bubbles",
     }
+
+    server_user { "robbie":
+            uid             => 2001,
+            fullname        => "Robbie MacKay",
+            password        => '$6$pZA7NlIv$EJr6uSwptv2UziF504E2lJx34MSifJGK4EE8qk9xyExXyP7Dso3NNcphwTpDaWKbDpWezIp8eLxlWuagxJqBM0',
+            groups          => [ "sbtf", "sudo" ],
+            authorized_keys => "ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEAxFlAN12WU1gQCVyRUeON3YrcZTOLy3VN0PQCvef9jB0mMho1163wMkoH6dIFVgwWsw/A1nQTYYUlnA+3cc6mvoqgFtZfuCNf9kKQiCE4b1/uahvVBpDmPnRESujdD8IZb5g8kD4BwYYgF8OWFj59Vl92o8Oj9NAccqinIOIechcTguVG4xwxxqQdqyu2WE3rrDWvLNthJpa8uv0aux9bh50mGcbAeKEdrtVuS5Qa10FtNx3aGS01VVmok7fuSfgNHCdQVMV4x8QPMo8LY7lYs57wSzHc2XqGJCnCB5947XwB/msq9ZoyCZlUvdav2qNbp+VK9KtMctlX6kyceuBWKw== robbie@Grenache\nssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEAsGY/zd2QS36JKh979msu1jBi8ECGG+h8uAIJuAEoT2L5R1ol7ll4j08pNd3HT/QujlSkQ0DfT2+BZPx8+GjX2hyPGFtjyzOEc9bLyHN9pcu+8S8YQTol+auq/4+Us4QQsmeDl7+DMYTid6j7r5+Dg4aBeibQqunuv08LeYx0p2ZoqvHw/oZJSQdI1Pb3xCXQjh458A3WG22CGyWCrhv5HsIxcP3udF+tDTYHFWlO19P1lPf7Q1/sGSPlwtwU3NPw7aPJPu9/k1AqnMYAlF1nS8ZEB+jCtt+cqAcYoMm6pNqQv/1A9VAUhlbQJiEVD6JxT++O5KeM/X+ZlDBFxky8mw== robbie@rjmackay1.robbiemackay.com",
+    }
 }
