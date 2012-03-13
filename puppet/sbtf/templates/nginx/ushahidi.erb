@@ -2,6 +2,7 @@
 # Ushahidi nginx server configuration
 server {
     listen 80 default;
+    include conf.d/ushahidi-hostname;
     root /home/sbtf/ushahidi;
     index index.php;
 

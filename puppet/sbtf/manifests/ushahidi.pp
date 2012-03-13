@@ -51,7 +51,6 @@ class sbtf::ushahidi inherits sbtf::base {
         notify  => Service["nginx"],
     }
 
-    # TODO will need to make an intelligent decision about server name
     file { "/etc/nginx/sites-enabled/ushahidi":
         ensure  => "present",
         owner   => "root",
