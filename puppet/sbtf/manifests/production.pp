@@ -99,4 +99,22 @@ sbtf   ALL=NOPASSWD: /home/sbtf/sbtf/bin/sbtf-update.sh\n",
             groups          => [ "sbtf", "sudo" ],
             authorized_keys => "ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEAxFlAN12WU1gQCVyRUeON3YrcZTOLy3VN0PQCvef9jB0mMho1163wMkoH6dIFVgwWsw/A1nQTYYUlnA+3cc6mvoqgFtZfuCNf9kKQiCE4b1/uahvVBpDmPnRESujdD8IZb5g8kD4BwYYgF8OWFj59Vl92o8Oj9NAccqinIOIechcTguVG4xwxxqQdqyu2WE3rrDWvLNthJpa8uv0aux9bh50mGcbAeKEdrtVuS5Qa10FtNx3aGS01VVmok7fuSfgNHCdQVMV4x8QPMo8LY7lYs57wSzHc2XqGJCnCB5947XwB/msq9ZoyCZlUvdav2qNbp+VK9KtMctlX6kyceuBWKw== robbie@Grenache\nssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEAsGY/zd2QS36JKh979msu1jBi8ECGG+h8uAIJuAEoT2L5R1ol7ll4j08pNd3HT/QujlSkQ0DfT2+BZPx8+GjX2hyPGFtjyzOEc9bLyHN9pcu+8S8YQTol+auq/4+Us4QQsmeDl7+DMYTid6j7r5+Dg4aBeibQqunuv08LeYx0p2ZoqvHw/oZJSQdI1Pb3xCXQjh458A3WG22CGyWCrhv5HsIxcP3udF+tDTYHFWlO19P1lPf7Q1/sGSPlwtwU3NPw7aPJPu9/k1AqnMYAlF1nS8ZEB+jCtt+cqAcYoMm6pNqQv/1A9VAUhlbQJiEVD6JxT++O5KeM/X+ZlDBFxky8mw== robbie@rjmackay1.robbiemackay.com",
     }
+
+    server_user { "jeremyb":
+            uid             => 2002,
+            fullname        => "Jeremy B",
+            password        => '$6$n2D0ipze/y2zb$aaj.Ni7a6CfNa92U9BcpOlqOha3bojWogXwgrXVR7QtLfcDYwpr6QeWqs.A/4BO4iVkzEu5fL.Esgs201vDCn/',
+            groups          => [ "sbtf", "sudo" ],
+            authorized_keys => "",
+    }
+
+    server_user { "ben":
+            uid             => 2003,
+            fullname        => "Ben Bradshaw",
+            password        => '$6$57vMqhMuiWnY$8KA62nD0a73jI7HfsuQQtgf53KHMtkrWPPz4cHpOC6djDMzkFYtFIFPPY0ynDbEi7NUnZ9E6jjGdGlLedx/Jx0',
+            groups          => [ "sbtf", "sudo" ],
+            authorized_keys => "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC2XanK8fbWVd6QesYzJDQs/d79eGHNWIUV2dOsWvIEXZ7/Wi8/9hdT22GkFhq6fbOy7hV3kWr1Q73qxBw/cnLYoXnMr3lZM55YE4Wk60kxFu0u+hmBDY2JWeQrSnZpofCMOyXns4rxH9hMQA7JJrbjhifMCtS+y4vr2VsftyOTrgVmWifJg6LS9n0qY2N65hul83p1jfrFAGZaJshUR4XBsplk76SH6jN6M+N7Y0rPdTVYylsqCsb4+J8uhOfhdzhhWSGKSeTD2wnTWmWxS8FNcmprLQi+hPbVf6uZ7FHlkIQi2R3ESNNXIMSW0gue/jMhkz51ekJriAYxTrCkdeL/ ben@helo
+ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEAxKfrJRhoARDir+mjBTPLH7S36BGPsYYfWaDEswVIDW8ntE60qwxXxPjIyVZC8pyOAWvg1iTnuSxvFcInB758/J7JSIPZFc4syuYWiGLSVegWbWyflECccWR/A8ETbmDU1DQySezMVUgQoCJ8vDASMEays+07WpzwwzT+nJxJcTkUnGK2LQE63QROrrGB9UIH5ElzVR2aCN1oTd970qvFbtx0ka4g7E12DR74nm3Zmh7Sylr456yAL6OC5suEq8tDk8t++FP+eYO5k4qOZ9h9AzGcis9pmhp0Cn73qY3zeCnr8kbZz8fuN2psgV9Boh7/PI42KVwd7bTZtdY/35qELw== ben@abutan
+ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEAxLWotp55uwlCpNFvyLXxpF1rX0Q7PzoVu3E+NwPuSPZJld14yJtX5I872D5uvz24Oto/oO2VqkY+qYnEK8wagpk22v8uVCIQXGIcS10NmLDUV9tZ75yoL7aFsXKmpDyVpD43DZEgL6En8U640x07FSlVXWHslCOVLg6AC+/xoy1vgZOkLsVARNhLcY9vH+xY662crags7d7Z/4NATDbJARIJMZinHvlnDrnn4+Si/cUXYO+jr04mKm1tOs06cDQjehYQmdIlwjfIH8in13+Q1Dj7159SEnkzb6vnt/lMxDcBj9KvWxfxs06X0le+9tDcZxqDv1YHJI/pRUPc2MRuQQ== ben@falcon.local",
+    }
 }
