@@ -102,6 +102,15 @@ class sbtf::ushahidi inherits sbtf::base {
         require => Exec["checkout_ushahidi"],
     }
 
+    file { "/home/sbtf/ushahidi/application/config/database.php":
+        ensure  => "present",
+        owner   => "sbtf",
+        group   => "sbtf",
+        mode    => 644,
+        content => template("sbtf/ushahidi/database.php.erb"),
+        require => Exec["checkout_ushahidi"],
+    }
+
     file {[
         "/home/sbtf/ushahidi/application/cache",
         "/home/sbtf/ushahidi/application/logs",
