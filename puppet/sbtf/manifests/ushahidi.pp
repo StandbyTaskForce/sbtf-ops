@@ -122,4 +122,6 @@ class sbtf::ushahidi inherits sbtf::base {
         content => template("sbtf/ushahidi/cron.erb"),
     }
 
+    include sbtf::mysql
+
 }
