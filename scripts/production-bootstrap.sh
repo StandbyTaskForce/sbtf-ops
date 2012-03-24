@@ -34,8 +34,6 @@ dpkg-reconfigure locales > /dev/null 2>&1
 rm /etc/localtime
 ln -s /usr/share/zoneinfo/UTC /etc/localtime
 
-# TODO possibly, hostname configuration
-
 echo "done."
 
 

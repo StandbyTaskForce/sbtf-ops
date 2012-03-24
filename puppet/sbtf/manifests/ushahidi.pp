@@ -58,7 +58,16 @@ class sbtf::ushahidi inherits sbtf::base {
         mode    => 644,
         content => template("sbtf/nginx/ushahidi.erb"),
         require => Package["nginx"],
-        notify  => Service["nginx"], # TODO check this causes a reload only if changed
+        notify  => Service["nginx"],
+    }
+
+    file { "/etc/nginx/conf.d/ushahidi-hostname":
+        ensure  => "present",
+        owner   => "root",
+        group   => "root",
+        mode    => 644,
+        require => Package["nginx"],
+        notify  => Service["nginx"],
     }
 
     file { "/etc/init.d/php":
