@@ -131,6 +131,34 @@ class sbtf::ushahidi inherits sbtf::base {
         content => template("sbtf/ushahidi/cron.erb"),
     }
 
-    include sbtf::mysql
+    # MySQL
+    $mysql_packages = [
+        "mysql-server",
+    ]
+
+    bulkpackage { "mysql-packages":
+        packages => $mysql_packages,
+        require  => Class["apt-setup"],
+    }
+
+    package { $mysql_packages: }
+
+    service { "mysql":
+        ensure  => running,
+        require => Package["mysql-server"],
+    }
+
+    $dbname = 'ushahidi'
+    exec { "create-${dbname}-db":
+        unless => "/usr/bin/mysql -uroot ${dbname}",
+        command => "/usr/bin/mysql -uroot -e \"create database ${dbname}; grant all on ${dbname}.* to ushahidi@localhost identified by 'cheese';\"",
+        require => Service["mysql"],
+    }
+
+    exec { "install-ush-db":
+        command => "/usr/bin/mysql -uushahidi -pcheese ushahidi < /home/sbtf/ushahidi/sql/ushahidi.sql",
+        require => [ Exec["create-${dbname}-db"], Exec["checkout-ushahidi"] ],
+        unless => "/usr/bin/mysql -uushahidi -pcheese ushahidi -e 'select * from settings'",
+    }
 
 }
