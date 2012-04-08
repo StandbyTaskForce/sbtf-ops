@@ -157,7 +157,7 @@ class sbtf::ushahidi inherits sbtf::base {
 
     exec { "install-ush-db":
         command => "/usr/bin/mysql -uushahidi -pcheese ushahidi < /home/sbtf/ushahidi/sql/ushahidi.sql",
-        require => [ Exec["create-${dbname}-db"], Exec["checkout-ushahidi"] ],
+        require => [ Exec["create-${dbname}-db"], Exec["checkout_ushahidi"] ],
         unless => "/usr/bin/mysql -uushahidi -pcheese ushahidi -e 'select * from settings'",
     }
 
