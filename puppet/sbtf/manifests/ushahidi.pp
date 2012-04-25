@@ -14,6 +14,7 @@ class sbtf::ushahidi inherits sbtf::base {
         "php5-mcrypt",
         "php5-curl",
         "php5-imap",
+        "php5-gd",
     ]
 
     bulkpackage { "web-packages":
