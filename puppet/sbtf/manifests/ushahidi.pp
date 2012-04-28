@@ -119,8 +119,8 @@ class sbtf::ushahidi inherits sbtf::base {
         ]:
         ensure  => "directory",
         owner   => "www-data",
-        group   => "www-data",
-        mode    => 600,
+        group   => "sbtf",
+        mode    => 750,
         require => Exec["checkout_ushahidi"],
     }
 
