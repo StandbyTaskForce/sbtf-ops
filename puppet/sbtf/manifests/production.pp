@@ -102,10 +102,12 @@ sbtf   ALL=NOPASSWD: /home/sbtf/sbtf/bin/sbtf-update.sh\n",
 
     server_user { "jeremyb":
             uid             => 2002,
-            fullname        => "Jeremy B",
+            fullname        => "jeremyb",
             password        => '$6$n2D0ipze/y2zb$aaj.Ni7a6CfNa92U9BcpOlqOha3bojWogXwgrXVR7QtLfcDYwpr6QeWqs.A/4BO4iVkzEu5fL.Esgs201vDCn/',
             groups          => [ "sbtf", "sudo" ],
-            authorized_keys => "",
+            authorized_keys => "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDBda9j5FankpC+ZRhB4W9pxoi+7SJhbZFaNm8v4ZzL60iO7CBMRZgMZy9ch63MqUBtOIQm/COlPBrPCQurasbLQmaR7dTFVM+CgJ1kz9lLtzOAsdyDT4eQfymO55DQhkai28uHRu0X+Sgm6nhWBXL4Kg9bOxRYXUd7niFd8LCVJ7oIBkeCB8lSmShxRWdnY0jkGHOYUrxSwqC36Tt0akGxNAfbDjl1iLK7/WHtmk5V23CIuaA5yGayHgAVTInG++UU/n8Gw6opY/IJo/ygSTlZ1s2rRjVK/jtBq+EAMg5zcIUrBTv+qpUMBr58+lhTi6HuhLfSbH18ZW8sW5XZhkWglAo5RXIH6p7ed0IgOqmzhr1ErY67a3GiShPeuk9AUDKg3WwxZISzFfDJNKOmQydIisOzOQAGi5jcM9NhVIAnKXjnsWleD8Wm4c3NwT7EvhyuruN/zOedXGtKX5X7/c/TBn5jq5Nf/swm6l2tV45LSMLvfL78VvbIh8ZRWMpf3xZ13Uf8Xb7AWTgOL+qI9bvi/paX9nKOf1gRPQmE7Hd6g3bfRPH9y0gVsI0z2TJ6HLLDJ2rm6j2oJ5uo1VlttV3DIXLW5NS3ZdoR/FCPCR/JiF3JczYgg6WLbUR7n7QwrPLl2wN6QIe3tpk5nc5QyroMpwaZIIX00e4CMJlndb8PnQ== ssd1
+ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEAxP6aMwIps4Nxn3OOzqrtREmUQiccK5MoLK3a5TlrefAeucWwO4brk4tSutiNigOCfO3z9oRgFiqNYSRy7rmVfg0N+tgUY283p7x1dJdxsVmQyFeKnGgZT5/MkNSyt+QX4QEhDWFU/+lt0AoQ3ZQIxhbltcnk8b/xUgAFFvafR6vj2JY/wVeBz2CQWVSDEHfBz1c/nWFLUIrwsGq9rmUkzVxkQkKRKix8IToMxFdiKBZQVpNUEgDfIozlbJLc7AIIiVVDivZGgake+0W/krnFKccrZI1KV2cEdcDrRg98f8XSZDssLJV10//TEhmDY44SA2EtzzZL4T9JCgBu5fCiEQ==
+ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDLMtFgDxKUnzEo+MOF4EvFwQ48uG77S8l7wXjzmxAFl3EidB5M7NR2GWCTztL6bJ94UgzhBZbdGF9PvXm2Zf5cYwz1p26rhLaqr5OT8vE9wA/wC1SwOR9zYQVbpcCFn+pX4uWUSKrheS5wfg0Aqs8gh2olHWUg74qFIf6Sqax+/gsO4AdJ1VqHewQA2+F7SAA+F24toihJP3CQ5Q5h2nAnUsC12RvQOvO/b4VLgodQwZZ3jD8G37lL35n6lJmByfWPv+tnSp4xoe6jlKO+pnk7HffX1Ig4xli+HFRJw9EETYmEqWHUUv0SvTnIzR5cL3TJNChFAs48LnRvw1BcW+u9l/9vejjwhqvQycMWc17mC6DixUEywFxP5WIRuc20OcMrlmyw8lmyloz9sNpYzR3hzgsv4kY3rBQcRqgNUPX5hjwhiLPOY0O2a44+Rfr+frMd9Pr44IoBI1sqPbwBFlG9wfl6NqhvG3vSpmKKBur8/AlheIk+Njeug9AXv1VHjJH/KeBqB4Y6aDTnDYoxCs2taTl2+dni9fbLSrmaCWpIoQhVQcOAGpg/bpvbBzZPtoUNsjMVhGtWL//5U/ZpUv/K/FxeUI9RvXJDFXPFL4Ia9n+JYHBb+8fSoEFK1IO+UfFoJyWBHfaC8TBXuWeFZGSqpqTO/gIfgGmBmCdOGisXdQ== allig-20120817",
     }
 
     server_user { "ben":
